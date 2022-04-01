@@ -13,6 +13,12 @@ import { linking } from 'linking';
 import { navigationRef } from 'services/NavigationService';
 import { useNetwork } from 'hooks/useNetwork';
 
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient({
+  defaultOptions: { queries: { retry: 2 } },
+});
+
 export function App() {
   // 监听网络连接情况
   useNetwork();
@@ -32,18 +38,20 @@ export function App() {
   });
 
   return (
-    <SafeAreaProvider>
-      <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
-        <NavigationContainer
-          onReady={bootsplashHide}
-          ref={navigationRef}
-          linking={linking}
-          fallback={<Fallback />}
-          theme={theme === 'dark' ? DarkTheme : DefaultTheme}
-        >
-          <Stack />
-        </NavigationContainer>
-      </ThemeProvider>
-    </SafeAreaProvider>
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaProvider>
+        <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+          <NavigationContainer
+            onReady={bootsplashHide}
+            ref={navigationRef}
+            linking={linking}
+            fallback={<Fallback />}
+            theme={theme === 'dark' ? DarkTheme : DefaultTheme}
+          >
+            <Stack />
+          </NavigationContainer>
+        </ThemeProvider>
+      </SafeAreaProvider>
+    </QueryClientProvider>
   );
 }

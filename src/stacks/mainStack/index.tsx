@@ -8,6 +8,11 @@ import { MapChart } from 'modules/charts/screens/map';
 import { IndexBarDemo } from 'modules/homepage/screens/indexbar';
 import { LocalModelDemo } from 'modules/homepage/screens/localmodel';
 import { RecyclerListDemo } from 'modules/homepage/screens/recyclerlist';
+import { RecyclerListDemo1 } from 'modules/homepage/screens/recyclerlist/demo1';
+import { RecyclerListDemo2 } from 'modules/homepage/screens/recyclerlist/demo2';
+import { RecyclerListDemo3 } from 'modules/homepage/screens/recyclerlist/demo3';
+import { RecyclerListDemo4 } from 'modules/homepage/screens/recyclerlist/demo4';
+import { RecyclerListDemo5 } from 'modules/homepage/screens/recyclerlist/demo5';
 
 import { Settings } from 'modules/user/screens/settings';
 import { ModifyPassword } from 'modules/user/screens/modifyPass';
@@ -58,10 +63,45 @@ const screens = [
     },
   },
   {
+    name: 'RecyclerListDemo1',
+    component: RecyclerListDemo1,
+    options: {
+      headerTitle: 'RecyclerListView示例1',
+    },
+  },
+  {
+    name: 'RecyclerListDemo2',
+    component: RecyclerListDemo2,
+    options: {
+      headerTitle: 'RecyclerListView示例2',
+    },
+  },
+  {
     name: 'RecyclerListDemo',
     component: RecyclerListDemo,
     options: {
       headerTitle: 'RecyclerListView示例',
+    },
+  },
+  {
+    name: 'RecyclerListDemo3',
+    component: RecyclerListDemo3,
+    options: {
+      headerTitle: 'RecyclerListView示例3',
+    },
+  },
+  {
+    name: 'RecyclerListDemo4',
+    component: RecyclerListDemo4,
+    options: {
+      headerTitle: 'RecyclerListView示例4',
+    },
+  },
+  {
+    name: 'RecyclerListDemo5',
+    component: RecyclerListDemo5,
+    options: {
+      headerTitle: 'RecyclerListView示例5',
     },
   },
   {

@@ -36,7 +36,7 @@ class StorageService {
     if (StorageService.getInstance().storage.getAllKeys().includes(StorageToken.SignedIn)) {
       return StorageService.getInstance().storage.getBoolean(StorageToken.SignedIn);
     }
-    return false;
+    return true;
   }
 
   get token(): Token {
@@ -76,7 +76,7 @@ class StorageService {
             const oldObj = JSON.parse(oldValue);
             StorageService.getInstance().storage.set(key, removeEmpty({ ...oldObj, ...value }));
           } else {
-            StorageService.getInstance().storage.set(key, JSON.stringify(removeEmpty(value)));
+            StorageService.getInstance().storage.set(key, JSON.stringify(removeEmpty(value as Record<string, any>)));
           }
           break;
 
